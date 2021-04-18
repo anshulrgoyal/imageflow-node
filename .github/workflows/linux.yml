@@ -36,6 +36,8 @@ jobs:
         with:
           path: target
           key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
+      - name: Install Clang
+        run: sudo apt install llvm libclang-dev
       - name: Build
         run: cargo build
         working-directory: native
